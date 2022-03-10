@@ -28,15 +28,23 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function grupos($id)
+    public function grupos($grupoId)
     {
         $id = Auth::user()->id;
+
         $grupos = DB::table('grupos')
             /* ->select('alumnos.*', 'grupos.id') */
             ->select('id', 'name')
             ->where('user_id', '=', $id)
             ->get();
-        dd($grupos);
-        return view('home', compact('grupos', 'id'));
+        /* dd($grupos); */
+        $alumnos = DB::table('alumnos')
+            /* ->select('alumnos.*', 'grupos.id') */
+            ->select('alumnos.id', 'alumnos.name', 'alumnos.lastname', 'alumnos.grupo_id')
+            ->join('grupos', 'grupos.id', '=', 'alumnos.grupo_id')
+            ->where('grupos.id', '=',  $grupoId)
+            ->get();
+        dd($alumnos);
+        return view('gruposProfesor', compact('grupos', 'id', 'alumnos'));
     }
 }

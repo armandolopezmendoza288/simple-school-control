@@ -22,7 +22,7 @@ Auth::routes();
 
 /* User */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home/{user}', [App\Http\Controllers\HomeController::class, 'grupos'])->name('grupos.usuario');
+Route::get('/home/{user}/{grupo}', [App\Http\Controllers\HomeController::class, 'grupos'])->name('grupos.usuario')->middleware('onlyadmin');
 Route::get('/users/home', [App\Http\Controllers\UserController::class, 'create'])->name('users.home')->middleware('onlyuser');
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');

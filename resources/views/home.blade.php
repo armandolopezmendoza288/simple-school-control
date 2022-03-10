@@ -5,10 +5,9 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="card">
-                        {{-- <a href="{{route('grupos.usuario',  1 )}}"> --}}
-                        <a href="#">
+                        <a href="{{route('grupos.usuario',  Auth::user()->id )}}">
                             <header>
-                                <img src="{{ asset('img/grupo-de-trabajo.png') }}" alt="">
+                                <img class="img-fluid" src="{{ asset('img/grupo-de-trabajo.png') }}" alt="">
                             </header>
                             <section>
                                 <h2>Grupos</h2>
