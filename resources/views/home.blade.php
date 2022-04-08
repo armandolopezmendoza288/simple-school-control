@@ -10,8 +10,8 @@
                                 <img class="img-fluid" src="{{ asset('img/grupo-de-trabajo.png') }}" alt="">
                             </header>
                             <section>
-                                <h2>Grupos</h2>
-                                <h4>Crear, eliminar, editar, visualizar registro de grupos</h4>
+                                <h2 class="pt-3">Grupos</h2>
+                                <h4 class="pb-3">Registro de grupos para pase de lista</h4>
                             </section>
                             <footer>
                                 <p>Coded By Teacheck</p>

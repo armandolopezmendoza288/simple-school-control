@@ -71,7 +71,8 @@
             <div class="col-md-4 mt-5 ">
             </div>
             <div class="col-md-4 mt-1">
-                <p class="logo">Teacheck</p>
+                <p class="logo mb-0">Teacheck</p>
+                <p class="logoMini mb-4">(Pase de lista)</p>
                 <div class="card tablaPlanes text-center">
                     <div class="card-header headerform">
                         Iniciar sesión
