@@ -29,7 +29,8 @@
                                     <div class="col-sm-8 mt-3">
                                         <select class="form-control" id="exampleFormControlSelect1" name="user_id"  value="{{ old('user_id') }}">
                                             @foreach ($users as $user)
-                                            <option>{{$user->id}}</option>
+                                            {{-- <option>{{$user->id}}</option> --}}
+                                            <option value='{{ $user->id }}'>{{ $user->name }}</option>
                                             @endforeach
                                         </select>
                                         @if ($errors->has('user_id'))

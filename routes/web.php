@@ -45,7 +45,7 @@ Route::get('/alumnos', [App\Http\Controllers\AlumnoController::class, 'index'])-
 Route::post('/alumnos', [App\Http\Controllers\AlumnoController::class, 'store'])->name('alumno.store');
 Route::get('/alumnos/{alumno}', [App\Http\Controllers\AlumnoController::class, 'show'])->name('alumno.show')->middleware('onlyuser');
 Route::get('/alumnos/{alumno}/edit', [App\Http\Controllers\AlumnoController::class, 'edit'])->name('alumno.edit')->middleware('onlyuser');
-Route::post('/alumnos/{alumno}', [App\Http\Controllers\AlumnoController::class, 'update'])->name('alumno.update');
+Route::put('/alumnos/{alumno}', [App\Http\Controllers\AlumnoController::class, 'update'])->name('alumno.update');
 Route::delete('/alumnos/{alumno}', [App\Http\Controllers\AlumnoController::class, 'destroy'])->name('alumno.delete');
 
 

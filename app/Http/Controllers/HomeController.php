@@ -33,33 +33,21 @@ class HomeController extends Controller
     public function grupos()
     {
         $id = Auth::user()->id;
-        /* dd($id); */
-        /* $grupos = DB::table('grupos')
-            ->select('id', 'name')
-            ->where('user_id', '=', $id)
-            ->get();
-        dd($grupos); */
-
-        /* $gruposP = DB::table('grupos')
-        ->select('id', 'name')
-        ->where('user_id', '=', $id)
-        ->get(); */
-        /* dd($gruposP); */
 
         $grupos = DB::table('grupos')
             ->select('grupos.*')
             ->where('user_id', '=', $id)
             ->get();
-        /* dd($alumnos);
- */
 
-        /* $alumnos = DB::table('alumnos')
-            ->select('alumnos.id', 'alumnos.name', 'alumnos.lastname', 'alumnos.grupo_id')
-            ->join('grupos', 'grupos.id', '=', 'alumnos.grupo_id')
-            ->where('grupos.id', '=', 4)
-            ->get(); */
-       /*  dd($alumnos); */
-        return view('gruposProfesor', compact('id', 'grupos'));
+        $cantAlumnos = DB::table('grupos')
+        ->select('alumnos.grupo_id', DB::raw('count(*) as cant'))
+        ->groupBy('alumnos.grupo_id')
+        ->join('alumnos', 'grupos.id', '=', 'alumnos.grupo_id')
+        ->where('user_id', '=', $id)
+        ->get();
+
+        /* dd($cantAlumnos); */
+        return view('gruposProfesor', compact('id', 'grupos', 'cantAlumnos'));
     }
     public function show($id)
     {
@@ -72,7 +60,7 @@ class HomeController extends Controller
             ->join('grupos', 'grupos.id', '=', 'alumnos.grupo_id')
             ->where('grupos.id', '=', $id)
             ->get();
-        /* dd($alumnos); */
+
         return view('listadoAlumnos', compact('alumnos', 'grupo'));
     }
 }

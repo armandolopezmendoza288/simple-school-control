@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn btn-primary">Actualizar    </button>
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
                         </div>
                     </form>

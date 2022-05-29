@@ -59,7 +59,7 @@ class GrupoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|unique:grupos|min:2|max:3',
+            'name' => 'required|min:2|max:3',
             'user_id' => 'required',
         ]);
 

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-12">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -24,10 +24,19 @@
                                                 <tr class="text-center">
                                                     <td style="max-width: 175px;">{{ $grupo->id }}</td>
                                                     <td style="max-width: 175px;">{{ $grupo->name }}</td>
-                                                    <td style="max-width: 175px;">30</td>
+                                                    <td style="max-width: 175px;">
+                                                        @foreach ($cantAlumnos as $alumnos)
+                                                            {{-- {{$cantAlumnos[0]->cant}} --}}
+                                                            @if ($alumnos->grupo_id == $grupo->id)
+                                                                {{ $alumnos->cant }}
+                                                            @endif
+                                                        @endforeach
+                                                    </td>
                                                     {{-- <td style="max-width: 175px;">{{ $grupo->user_id }}</td> --}}
                                                     <td class="text-center">
-                                                        <a href="{{route('listado.show', $grupo->id)}}" class="btn" style="background: rgb(63, 191, 53) !important" type="button">
+                                                        <a href="{{ route('listado.show', $grupo->id) }}"
+                                                            class="btn"
+                                                            style="background: rgb(63, 191, 53) !important" type="button">
                                                             <i class="text-white fas fa-clipboard-list"></i>
                                                         </a>
                                                     </td>
@@ -43,5 +52,5 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 @endsection
