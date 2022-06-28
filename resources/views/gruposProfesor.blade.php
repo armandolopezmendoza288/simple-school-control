@@ -17,7 +17,8 @@
                                             <th>ID</th>
                                             <th>Nombre</th>
                                             <th>Cantidad de alumnos</th>
-                                            <th class="text-center">Acciones</th>
+                                            <th class="text-center">Pase de lista</th>
+                                            <th class="text-center">Reporte de asistencias</th>
                                         </thead>
                                         <tbody>
                                             @foreach ($grupos as $grupo)
@@ -37,6 +38,13 @@
                                                         <a href="{{ route('listado.show', $grupo->id) }}"
                                                             class="btn"
                                                             style="background: rgb(63, 191, 53) !important" type="button">
+                                                            <i class="text-white fas fa-file-signature"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-end">
+                                                        <a href="{{ route('report.show', $grupo->id) }}"
+                                                            class="btn btn-info"
+                                                            style="" type="button">
                                                             <i class="text-white fas fa-clipboard-list"></i>
                                                         </a>
                                                     </td>

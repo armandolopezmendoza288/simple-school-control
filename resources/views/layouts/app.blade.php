@@ -13,6 +13,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+
     {{-- Icono Pestaña navegador --}}
     <link rel="icon" href="{{ asset('img/alumno.png') }}">
 

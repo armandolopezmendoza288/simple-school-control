@@ -10072,7 +10072,7 @@ nav .navbar-brand {
   background-color: white !important;
   border-radius: 16px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
-  height: 350px;
+  height: auto;
 }
 
 .headerform {
@@ -10297,5 +10297,10 @@ input[type=file] {
 @media (max-width: 950px) {
   .home .row {
     margin-top: 10px;
+  }
+
+  .home header img {
+    width: 100%;
+    height: auto;
   }
 }

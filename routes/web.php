@@ -22,8 +22,15 @@ Auth::routes();
 
 /* User */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home/{user}', [App\Http\Controllers\HomeController::class, 'grupos'])->name('grupos.usuario')->middleware('onlyadmin');
-Route::get('/listado/{grupo}', [App\Http\Controllers\HomeController::class, 'show'])->name('listado.show')->middleware('onlyadmin');
+Route::get('/lista/grupos/{user}', [App\Http\Controllers\HomeController::class, 'grupos'])->name('grupos.usuario')->middleware('onlyadmin');
+/* Route::get('/listado/{grupo}', [App\Http\Controllers\HomeController::class, 'show'])->name('listado.show')->middleware('onlyadmin') */;
+Route::get('/lista/alumnos/{grupoid}', [App\Http\Controllers\HomeController::class, 'showListAlumnos'])->name('listado.show')->middleware('onlyadmin');
+Route::get('/listado/{grupo}', [App\Http\Controllers\HomeController::class, 'showList'])->middleware('onlyadmin');
+Route::post('/listado', [App\Http\Controllers\HomeController::class, 'saveAttendance']);
+
+/* Rutas de reporte de asistencias  */
+Route::get('/attendanceReport/{grupoid}', [App\Http\Controllers\HomeController::class, 'showReportListAlumnos'])->name('report.show')->middleware('onlyadmin');
+
 Route::get('/users/home', [App\Http\Controllers\UserController::class, 'create'])->name('users.home')->middleware('onlyuser');
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');

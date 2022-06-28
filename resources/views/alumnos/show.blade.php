@@ -51,7 +51,7 @@
                                             <div class="button-container">
                                                 <a href="{{ route('alumno.index') }}" class="btn btn-sm btn-success mr-3">
                                                     Volver </a>
-                                                <a href="#"
+                                                <a href="{{route('alumno.edit', $alumno->id)}}"
                                                     class="btn btn-sm btn-twitter"> Editar </a>
                                             </div>
                                         </div>
