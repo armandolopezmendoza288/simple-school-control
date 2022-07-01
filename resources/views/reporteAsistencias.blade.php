@@ -6,7 +6,8 @@
                 <h1 class="text-center">Attendance report</h1>
             </div>
             <div class="col-12 mt-4">
-                <form action="attendance_report.php" class="form-inline mb-2">
+                <form action="{{ route('reportDate.show', $idGrupo) }}" method="post" class="form-inline mb-2">
+                    @csrf
                     <label for="start">Start:&nbsp;</label>
                     <input required id="start" type="date" name="start" value="{{ $start }}"
                         class="form-control mr-2">
@@ -44,7 +45,6 @@
                                     </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
                 </div>

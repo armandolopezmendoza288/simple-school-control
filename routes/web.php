@@ -30,6 +30,7 @@ Route::post('/listado', [App\Http\Controllers\HomeController::class, 'saveAttend
 
 /* Rutas de reporte de asistencias  */
 Route::get('/attendanceReport/{grupoid}', [App\Http\Controllers\HomeController::class, 'showReportListAlumnos'])->name('report.show')->middleware('onlyadmin');
+Route::post('/attendanceReport/{grupoid}', [App\Http\Controllers\HomeController::class, 'showReportListAlumnosDate'])->name('reportDate.show')->middleware('onlyadmin');
 
 Route::get('/users/home', [App\Http\Controllers\UserController::class, 'create'])->name('users.home')->middleware('onlyuser');
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');

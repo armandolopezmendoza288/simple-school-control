@@ -143,4 +143,30 @@ class HomeController extends Controller
             return view('reporteAsistencias', compact('idGrupo', 'start', 'end', 'alumnos'));
         }
     }
+    public function showReportListAlumnosDate(Request $request, $id)
+    {
+        $idGrupo = Grupo::find($id);
+        $id = Auth::user()->id;
+
+        $start = $request->start;
+        $end = $request->end;
+        /* dd($end); */
+
+        if ($idGrupo == null or $idGrupo->user_id != $id) {
+            return back();
+        } else {
+            $alumnos = DB::table('alumnos')
+                ->selectRaw("name, lastname, alumnos_asistencia.alumnos_id, sum(case when alumnos_asistencia.estado = 'presence' then 1 else 0 end) as presence_count, sum(case when alumnos_asistencia.estado = 'absence' then 1 else 0 end) as absence_count ")
+                ->groupBy('alumnos_asistencia.alumnos_id')
+                ->groupBy('name')
+                ->groupBy('lastname')
+                ->join('alumnos_asistencia', 'alumnos.id', '=', 'alumnos_asistencia.alumnos_id')
+                ->where('fecha', '>=', $start)
+                ->where('fecha', '<=', $end)
+                ->where('alumnos.grupo_id', '=', $idGrupo->id)
+                ->get();
+            /* dd($alumnos); */
+            return view('reporteAsistencias', compact('idGrupo', 'start', 'end', 'alumnos'));
+        }
+    }
 }
