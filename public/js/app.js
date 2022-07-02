@@ -2246,6 +2246,12 @@ var UNSET_STATUS = "unset";
         }, _callee2);
       }))();
     },
+
+    /* async reporte(){
+       await axios.get(`/attendanceReport/${this.grupo}`).then((response) => {
+        console.log(response)
+      });
+    }, */
     refreshStudentsList: function refreshStudentsList() {
       var _this3 = this;
 
@@ -37300,12 +37306,30 @@ var render = function () {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(0),
+                _c(
+                  "div",
+                  { staticClass: "col", staticStyle: { "text-align": "end" } },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-info text-white",
+                        attrs: { href: "/attendanceReport/" + this.grupo },
+                      },
+                      [
+                        _vm._v(
+                          "\n                  Reporte de asistencia\n                  "
+                        ),
+                        _c("i", { staticClass: "fas fa-file-signature ml-1" }),
+                      ]
+                    ),
+                  ]
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "table-responsive" }, [
                 _c("table", { staticClass: "table" }, [
-                  _vm._m(1),
+                  _vm._m(0),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -37412,23 +37436,6 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col", staticStyle: { "text-align": "end" } },
-      [
-        _c("button", { staticClass: "btn btn-info text-white" }, [
-          _vm._v(
-            "\n                  Reporte de asistencia\n                  "
-          ),
-          _c("i", { staticClass: "fas fa-file-signature ml-1" }),
-        ]),
-      ]
-    )
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

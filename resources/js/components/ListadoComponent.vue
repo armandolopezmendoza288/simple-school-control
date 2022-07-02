@@ -19,10 +19,10 @@
                   Guardar asistencia
                 </button>
                 <div class="col" style="text-align: end">
-                  <button class="btn btn-info text-white">
+                  <a :href="`/attendanceReport/${this.grupo}`" class="btn btn-info text-white">
                     Reporte de asistencia
                     <i class="fas fa-file-signature ml-1"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
               <div class="table-responsive">
@@ -129,6 +129,11 @@ export default {
         });
       /* console.log(JSON.stringify(studentsMapped)); */
     },
+    /* async reporte(){
+       await axios.get(`/attendanceReport/${this.grupo}`).then((response) => {
+        console.log(response)
+      });
+    }, */
     async refreshStudentsList() {
       await axios.get(`/listado/${this.grupo}`).then((response) => {
         this.alumnos = response.data;
