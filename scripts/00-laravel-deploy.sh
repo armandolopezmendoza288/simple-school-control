@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-echo "Running dump-autoload"
-composer dump-autoload
+echo "Here's php and composer versions"
+php -v
+composer -v
 
 echo "Running optimize-autoloader --no-dev"
 composer install --optimize-autoloader --no-dev
