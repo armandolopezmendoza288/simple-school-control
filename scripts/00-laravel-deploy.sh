@@ -6,9 +6,6 @@ composer -v
 echo "Running optimize-autoloader --no-dev"
 composer install --optimize-autoloader --no-dev
 
-echo "updating composer to version 2"
-composer self-update --2
-
 echo "Running composer"
 composer install --no-dev --working-dir=/var/www/html
 
